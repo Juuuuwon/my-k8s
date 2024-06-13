@@ -7,6 +7,10 @@ metadata:
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
   ingressClassName: nginx
+  tls:
+  - hosts:
+    - juwon.codes
+    secretName: juwon.codes
   rules:
   - host: juwon.codes 
     http:
@@ -17,4 +21,4 @@ spec:
           service:
             name: ghost
             port:
-              number: 443
+              number: 443 
