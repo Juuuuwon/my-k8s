@@ -3,11 +3,13 @@ kind: Ingress
 metadata:
   namespace: ghost
   name: ghost
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
   ingressClassName: nginx
   rules:
   - host: juwon.codes 
-    https:
+    http:
       paths:
       - path: /
         pathType: Prefix
