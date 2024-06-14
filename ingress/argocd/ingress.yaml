@@ -5,8 +5,13 @@ metadata:
   name: argocd
   annotations:
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
 spec:
   ingressClassName: nginx
+  tls:
+  - hosts:
+    - argo.juwon.codes
+    secretName: tls-secret
   rules:
   - host: argo.juwon.codes 
     http:
