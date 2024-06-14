@@ -2,18 +2,14 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   namespace: ghost
-  name: argocd
+  name: ghost
   annotations:
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
     cert-manager.io/cluster-issuer: letsencrypt
 spec:
   ingressClassName: nginx
-  tls:
-  - hosts:
-    - juwon.codes
-    secretName: tls-secret
   rules:
-  - host: juwon.codes 
+  - host: juwon.codes
     http:
       paths:
       - path: /
