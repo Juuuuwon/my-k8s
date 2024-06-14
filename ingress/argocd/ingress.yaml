@@ -3,6 +3,8 @@ kind: Ingress
 metadata:
   namespace: argocd
   name: argocd
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
   ingressClassName: nginx
   rules:
