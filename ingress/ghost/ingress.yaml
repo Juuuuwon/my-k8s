@@ -1,13 +1,9 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  namespace: ghost
   name: ghost
-  annotations:
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-    cert-manager.io/cluster-issuer: letsencrypt
+  namespace: ghost
 spec:
-  ingressClassName: nginx
   rules:
   - host: juwon.codes
     http:
