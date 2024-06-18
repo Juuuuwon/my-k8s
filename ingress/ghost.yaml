@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+  name: ghost
+  namespace: ghost
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: juwon.codes
+      http:
+        paths:
+          - backend:
+              service:
+                name: ghost
+                port:
+                  name: https
+            path: /
+            pathType: ImplementationSpecific
+  tls:
+    - hosts:
+        - juwon.codes
+      secretName: tls-secret
